@@ -8,6 +8,46 @@
         body{
         font-family: 'fantasy';
         color: rgb(145, 34, 47);
+        margin: 0;
+            padding: 0;
+            background-color: lightgray;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            /* vmin skalerer responsivt til viewporten */
+            letter-spacing: 1vmin;
+        }
+
+        .beholder {
+            max-width: 100%;
+            text-align: center;
+            color: rgb(31, 28, 28);
+            background-color: rgb(130, 220, 130);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* 3 kolonner, fr står for fraction, */
+            /* grid-gap: 5%; */
+            /* %-enhed gør det også responsivt */
+        }
+        
+        @media (max-width: 768px) {
+            .beholder {
+                grid-template-columns: 1fr 1fr;
+                /* 2 kolonner på små skærme */
+            }
+        }
+        @media (max-width: 480px) {
+            .beholder {
+                grid-template-columns: 1fr;
+                /* 1 kolonne på ekstra små skærme */
+                /* her bruges navnene - 6 gange per kolonne skal følges
+            hele vejen ned, se andet eksempel med 3 i kolonnen  
+            menu-item løber over to rækker i samme kolonne*/
+            grid-template-areas:
+                'header'
+                'menu'
+                'main'
+                'footer';
+            }
+
     }
     #overskrift{
         
@@ -30,8 +70,9 @@
 </head>
 
 <body>
-        <h1 #overskrift>  ryst terningerne!</h1>
-        <p id=>test1</p>
+        <h1 id="overskrift">ryst terningerne!</h1>
+        <div class="beholder" id="beholder">
+        <p id="test1">test1</p>
         <p>test2</p>
         <h3>test4</h3>
         <h2 >test5</h2>
